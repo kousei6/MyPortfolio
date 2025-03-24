@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <style>
+        /*全体のスタイル設定*/
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+        }
+
+        /*コンテンツのコンテナ設定*/
+        .container {
+            width: 90%; /*80*/
+            margin: auto;
+            padding: 20px; /*20*/
+        }
+
+        /*フレックスボックスを使い、行ごとにアイテムを横並びにする設定*/
+        .row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        /*カラム(列)の設定*/
+        .col {
+            flex: 1;
+            padding: 10px;
+        }
+
+        /*画像のレイアウト設定*/
+        .img__inner {
+            display: flex;
+            gap: 30px; 
+            padding: 20px 0;  
+            max-width: 1000px; 
+            margin: 0 auto;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .img__card {
+            width: 33.333%;
+        }
+
+        .img-item {
+            width: 100%;
+            height: 300px; 
+            object-fit: cover;
+            border-radius: 8px;
+            border: 1px solid #111;
+        }
+
+        /*メニューのコンテナ設定*/
+        .menu-container {
+            position: fixed;
+            top: 10px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        /*メニューアイコンの設定*/
+        .menu-icon {
+            font-size:  24px;
+            cursor: pointer;
+            background: #fff;
+            padding: 5px; 
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /*メニューの項目設定*/
+        .menu-items {
+            display: none;
+            position: absolute;
+            top: 50px; 
+            right: 20px;  
+            background: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            border-radius: 5px;
+            white-space: nowrap; 
+        }
+
+        .menu-items a{
+            display: inline-block; 
+            text-decoration: none;
+            color: #333;
+            padding: 5px 10px;
+        }
+
+        p{
+            line-height: 1.5;
+        } 
+    </style>
+
+    <script>
+        //　メニューの開閉を切り替える関数
+        function toggleMenu(){
+            var menu = document.getElementById("menu-items");
+            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+        }
+    </script>
+</head>
+
+<body>
+    <!--メニューアイコンとメニュー項目-->
+    <div class="menu-container">
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+        <div class="menu-items" id="menu-items">
+            <a href="#name">氏名</a>
+            <a href="#university">大学</a>
+            <a href="#self-introduction">自己紹介</a>
+            <a href="#hobby">趣味</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1><font face="Times New Roman" size="20">Profile</font></h1>
+
+        <!--氏名のセクション-->
+        <div class="row" id="name">
+            <div class="col">
+                <p><font face="Comic Sans MS" size="2">Haruta Kousei</font></p>
+                <p><font face="monospace" size="5">ハルタコウセイ</font></p>
+                <p><font face="monospace" size="3">2004年、埼玉県に生まれました。
+                    14歳の時にTBS系列のドラマ「逃げるは恥だが役に立つ」を観て、主演の星野源さんが演じる津崎平匡の職業である
+                    プログラマーに憧れを抱き、情報系の学部に興味を持つようになりました。
+                    そして、その夢を追いかけ東京工科大学に入学しました。
+                </font></p>
+            </div>
+            <div class="col">
+                <img src="photograph/S__25190405.jpg" alt="プロフィール写真" class="img-item">
+            </div>
+        </div>
+        
+        <!--大学のセクション-->
+        <div class="row" id="university">
+            <div class="col ">
+                <img src="photograph/mainimgs_campus-2019.jpg"  alt="大学画像" class="img-item">
+            </div>
+            <div class="col ">
+                <p><font face="Comic Sans MS" size="2"> Tokyo University of Technology</font></p>
+                <p><font face="monospace" size="5">東京工科大学</font></p>
+                <p><font face="monospace" size="3">東京工科大学八王子キャンパスに所属しています。自然豊かな環境で、学修することができます。
+                    コア科目では情報分野の国際学会が定める標準カリキュラムに沿った12の科目から構成されている科目群で履修することができます。
+                </font></p>
+            </div>
+        </div>
+
+        <!-- 自己紹のセクション -->
+        <div class="row" id="self-introduction">
+            <div class="col ">
+                <p><font face="Comic Sans MS" size="2">Self-Introduction</font></p>
+                <p><font face="monospace" size="5">自己紹介</font></p>
+                <p><font face="monospace" size="3">2004年埼玉生まれ。東京工科大学八王子キャンパスで情報分野を学んでいます。中学時代に観たドラマ「逃げるは恥だが役に立つ」
+                    をきっかけにプログラマーに憧れ、情報系の道を志しました。趣味は野球観戦で、東京ドームやベルーナドームに足を運び、推し選手の活躍に一喜一憂しています。また、
+                    古着巡りも好きで、高円寺や下北沢でストリート系のアイテムを探しています。音楽は星野源さんの楽曲を愛聴しており、「日常」や「Eureka」がお気に入りです。
+                    技術・野球・ファッション・音楽と幅広い分野に興味を持ちながら、成長していきたいと考えています。
+                </font></p>
+            </div>
+            <div class="col ">
+                <img src="photograph/S__23617543.jpg" alt="自己紹介イメージ" class="img-item">
+            </div>
+        </div>
+        
+        <!-- 趣味のセクション -->
+        <div class="row" id="hobby">
+            <div class="col ">
+                <img src="photograph/S__23617542.jpg" alt="趣味イメージ" class="img-item">
+            </div>
+            <div class="col ">
+                <p><font face="Comic Sans MS" size="2">Baseball Games</font></p>
+                <p><font face="monospace" size="5"> 野球観戦</font></p>
+                <p><font face="monospace">東京ドームやベルーナドームに足を運び。試合の熱気を肌で感じるのが好きです。特に読売巨人軍の坂本勇人選手と
+                    北海道日本ハムファイターズの万波中世選手を応援しており、推し選手の活躍に一喜一憂するのが醍醐味です。
+                </font></p>
+            </div>
+        </div>
+
+        <!-- 趣味のセクション -->
+        <div class="row">
+            <div class="col ">
+                <p><font face="Comic Sans MS" size="2">Secondhand Clothing Store Visits</font></p>
+                <p><font face="monospace" size="5"> 古着屋巡り</font></p>
+                <p><font face="monospace">高円寺や下北沢の古着屋を良く訪れます。特にストリート系のアイテムを探すのが好きで、ヴィンテージの一点物や個性的なデザインの服を見つけるのが楽しいです。
+                </font></p>
+            </div>
+            <div class="col ">
+                <img src="photograph/S__23617544.jpg" alt="趣味イメージ" class="img-item">
+            </div>
+        </div>
+
+        <!-- 趣味のセクション -->
+        <div class="row">
+            <div class="col">
+                <img src="photograph/o0900067514362795297.jpg" alt="趣味イメージ" class="img-item">
+            </div>
+            <div class="col ">
+                <p><font face="Comic Sans MS" size="2">Music Appreciation</font></p>
+                <p><font face="monospace" size="5"> 音楽鑑賞</font></p>
+                <p><font face="monospace">星野源の楽曲をよく聴きます。特に「日常」がお気に入りで、以前は東京ドームでのライブにも足を運びました。最近は、夜の散歩をしながら「Eureka」を聴くことにハマっており、
+                    音楽とともに過ごす時間を大切にしています。
+            </div>
+        </div>
+    </div>
+</body>
+</html> 
