@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <!-- 文字エンコーディングをUTF-8に設定 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- レスポンシブデザイン用のビューポート設定 -->
+    <title>Product ProjectD</title>
+    <!-- ブラウザのタブに表示されるタイトル -->
+    <style>
+        /*「もっと見る」ボタンのスタイル*/
+        .detail {
+            margin-top: 10px;
+            display: inline-block;
+            padding: 10px 30px;
+            background: #000000; 
+            color: rgb(255, 255, 255);
+            text-decoration: none;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        /* CSSスタイルの開始 */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0; 
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            width: 90%;
+            margin: 0 auto;
+            padding: 20px; 
+        }
+
+        .row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .col {
+            flex: 1;
+            padding: 10px;
+        }
+
+        /* 画像ギャラリー用のスタイル */
+        .img__inner {
+            display: flex;
+            gap: 30px;
+            padding: 20px 0;
+            max-width: 1000px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .img__card {
+            width: 33.333%; 
+        }
+
+        .img-item {
+            width: 100%;
+            height: 300px; 
+            object-fit: cover;
+            border-radius: 8px;
+            border: 1px solid #111;
+        }
+
+        /* メニュー用のスタイル */
+        .menu {
+            position: fixed;
+            top: 10px;
+            right: 20px;
+            background: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex; 
+            gap: 15px; 
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: #333;
+            padding: 5px 10px;
+        }
+
+        /* ハンバーガーメニュー用のスタイル */
+        .menu-container {
+            position: fixed;
+            top: 10px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        .menu-icon {
+            font-size:  24px;
+            cursor: pointer;
+            background: #fff;
+            padding: 5px; 
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .menu-items {
+            display: none;
+            position: absolute;
+            top: 40px;
+            right: 0;
+            background: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            border-radius: 5px;
+            white-space: nowrap;
+        }
+
+        .menu-items a{
+            display: inline-block;
+            text-decoration: none;
+            color: #333;
+            padding: 5px 10px;
+        }
+
+        /*行間を開けたり詰めたりするには、CSSコードのline-heightを使用*/
+        p {
+            line-height: 2;
+        }
+    </style>
+    <script>
+        function toggleMenu(){
+            var menu = document.getElementById("menu-items");
+            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+        }
+    </script>
+</head>
+
+<body>
+    <!-- ハンバーガーメニュー -->
+    <div class="menu-container">
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+        <div class="menu-items" id="menu-items">
+            <a href="#overview">概要</a>
+            <a href="#game-screen">ゲーム画面</a>
+            <a href="#source-code">ソースコード</a>
+            <a href="#detail">詳細</a>
+        </div>
+    </div>
+
+    <!-- メインコンテンツ -->
+    <div class="container">
+        <h1><font face="Times New Roman" size="20">Product</font></h1>
+        
+        <!-- 概要セクション -->
+        <div class="row" id="overview">
+            <div class="col">
+                <p><font face="Comic Sans MS" size="2">overview</font></p>
+                <p><font face="monospace" size="5">概要</font></p>
+                <p><font face="monospace">Pygameを使用してPacmanを実装した開発チームの経験共有します。５人のチームでGitHubを活用し、
+                    協力しながら開発を進めました。プロジェクトの環境のWindows11上のAnaconda仮想環境で構築し、Python3.10以上とPygame2.5.2を
+                    使用しました。チーム開発では、GitHubのリポジトリを利用し、ブランチ戦略やプルリクエストを活用しながらスムーズに進行しました。
+                </font></p>
+            </div>
+           <div class="col">
+                <img src="photograph/AdobeStock_385949189-1.jpeg" alt="プロジェクト概要" class="img-item">
+            </div>
+        </div>
+        
+        <!-- ゲーム画面セクション -->
+        <div class="row" id="game-screen">
+            <div class="col ">
+                <video width="100%" controls>
+                    <source src="photograph/パックマン動画レコーディング 2025-02-19 155452.mp4" type="video/mp4">
+                    お使いのブラウザは動画タグをサポートしていません。
+                </video>
+            </div>
+            <div class="col ">
+                <p><font face="Comic Sans MS" size="2">game screen</font></p>
+                <p><font face="monospace" size="5">ゲーム画面</font></p>
+                <p><font face="monospace">Pacmanの基本的なルールを再現し、プレイヤーは矢印キーで移動できます。マップ上には通常エサやパワーエサが配置されており、パワーエサを食べることで一定時間
+                    ゴーストを倒せます。ゴーストは通常時に接触するとゲームオーバーになるが、異なる動きをする複数のモードを持っています。また、ワープトンネルを活用して特定の地点間を移動できる機能も実装しました。
+                </font></p>
+            </div>
+        </div>
+
+        <!-- ソースコードセクション 25-->
+        <div class="row" id="source-code">
+            <div class="col ">
+                <p><font face="Comic Sans MS" size="2">source code</font></p>
+                <p><font face="monospace" size="5">ソースコード</font></p>
+                <p><font face="monospace">本ゲームの実装には,pythonの機能を活用して以下のようなクラスを設計しました。<br>
+                    ・Mapクラス:マップ情報を管理(マップデータ、エサの位置、ワープトンネルなど)<br>
+                    ・Playerクラス:Pacmanの移動やエサの取得処理<br>
+                    ・Ghostクラス:ゴーストの行動パターンや状態管理<br>
+                    ・GameManagerクラス:ゲーム全体の制御(開始、終了、スコア管理)<br>
+                    また、スムーズな開発のため、GitHubを用いてブランチ戦略を採用し、各機能ごとに開発を進めました。
+                </font></p>
+            </div>
+            <div class="col ">
+                <img src="photograph/スクリーンショット 2025-02-19 161628.png" alt="ソースコードの画像" class="img-item">
+            </div>
+        </div>
+        
+        <!-- 詳細セクション -->
+        <div class="row" id="detail">
+            <div class="col ">
+                <a href="404ErrorPage.html" target="_blank">
+                    <img src="photograph/comingsoon.png" alt="プロジェクト詳細" class="img-item">
+                </a>
+                <p style="text-align:center"><a href="404ErrorPage.html" class="detail">detail</a></p>
+            </div>
+            <div class="col">
+                <p><font face="Comic Sans MS" size="2">detail</font></p>
+                <p><font face="monospace" size="5">詳細</font></p>
+                <p><font face="monospace">・できたこと<br>
+                    Pygameを活用し、Pacmanの基本的なゲームシステムを再現<br>
+                    ゴーストのAIを複数の行動パターンで実装<br>
+                    ワープトンネルの追加により、ゲーム性の向上<br>
+                    ・改善点<br>
+                    ゲームバランスの調整(ゴーストの動きやスピード)<br>
+                    視覚的な演出を強化(スコア表示やアニメーションの追加)<br>
+                    追加機能(マルチプレイモードや新マップの導入)<br>
+                今後は、さらなる機能拡張と最適化を行い、より完成度が高いゲームを目指していきます。
+                </font></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 
