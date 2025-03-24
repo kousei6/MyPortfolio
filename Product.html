@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f8f9fa;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .img_inner {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px 0;
+        }
+
+        .img_card {
+            width: 45%;
+            max-width: 300px;
+            background: white;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        .product-img {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        .view-more {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #101010;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        .return-original {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #101010;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            text-align: center;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .return-original:hover {
+            transform: scale(1.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Product</h2>
+        <div class="img_inner">
+            <div class="img_card">
+                <p><font size="1">Product | Website</font></p>
+                <a href="ProjectB.html" target="_blank">
+                    <img src="photograph/S__23601156.jpg" alt="プロジェクト演習B" class="product-img">
+                </a>
+                <p><font size="1">Joint Development : Website Production <br>Date:2024/07/14</font></p>
+            </div>
+
+            <div class="img_card">
+                <p><font size="1">Product | Website</font></p>
+                <a href="ProjectD.html" target="_blank">
+                    <img src="photograph/S__23601158.jpg" alt="プロジェクト演習D" class="product-img">
+                </a>
+                <p><font size="1">Joint Development : Game Production <br>Date:2025/01/18</font></p>
+            </div>
+
+            <div class="img_card">
+                <p><font size="1">Product | Qiita</font></p>
+                <a href="404ErrorPage.html" target="_blank">
+                    <img src="photograph/comingsoon.png" alt="Qiita記事" class="product-img">
+                </a>
+                <p><font size="1">Personal Development : Website Production <br>Date:2025/××/××</font></p>
+            </div>
+
+            <div class="img_card">
+                <p><font size="1">Product | Qiita</font></p>
+                <a href="404ErrorPage.html" target="_blank">
+                    <img src="photograph/comingsoon.png" alt="Qiita記事" class="product-img">
+                </a>
+                <p><font size="1">Personal Development : Game Production <br>Date:2025/××/××</font></p>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <p style="text-align:center"><a href="index.html" class="return-original">return</a></p>
+    </div>
+</body>
+</html>
