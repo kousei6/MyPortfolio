@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Article</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f8f9fa;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .filter-buttons {
+            margin-bottom: 20px;
+        }
+
+        .filter-buttons button {
+            padding: 10px 15px;
+            margin: 5px;
+            border: none;
+            background-color: #101010;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .img_inner {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px 0;
+        }
+
+        .img_card {
+            width: 45%;
+            max-width: 300px;
+            background: white;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        .product-img {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        .view-more {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #101010;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        .return-original{
+            display: inline-block;
+            padding: 10px 20px;
+            background: #101010;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            text-align:center;
+            transition: transform 0.3s ease-in-out;
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .return-original:hover {
+            transform: translateX(-50%) scale(1.2);
+        }
+
+    </style>
+    <script>
+        /*カテゴリ機能*/
+        function filterArticles(category) {
+            var articles = document.getElementsByClassName("img_card");
+            for (var i = 0; i < articles.length; i++) {
+                if (category === "all" || articles[i].classList.contains(category)) {
+                    articles[i].style.display = "block";
+                } else {
+                    articles[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Article</h2>
+
+        <div class="filter-buttons">
+            <button onclick="filterArticles('all')">すべて表示</button>
+            <button onclick="filterArticles('python')">Python</button>
+            <button onclick="filterArticles('java')">Java</button>
+            <button onclick="filterArticles('AI')">AI</button>
+            <button onclick="filterArticles('knowledge')">knowledge</button>
+        </div>
+
+        <div class="img_inner">
+            <div class="img_card python">
+                <p><font size="1">Article | Qiita</font></p>
+                <a href="https://qiita.com/ouQVZUDx/items/d608b024ae075a2920ba" target="_blank">
+                    <img src="photograph/https___qiita-user-contents.imgix.net_https2F2Fassets2Farticle-ogp-background-afbab5eb44e0b055cce1258705637a92.png_ixlib=rb-4.0.jpg" alt="Qiita記事" class="product-img">
+                </a>
+                <p><font size="1">Title Tag : #Python #ライブラリ  <br>Date:2025/02/15</font></p>
+            </div>
+
+            <div class="img_card python">
+                <p><font size="1">Article | Qiita</font></p>
+                <a href="https://qiita.com/ouQVZUDx/items/ba2a27720d63da168b62" target="_blank">
+                    <img src="photograph/https___qiita-user-contents.imgix.net_https2F2Fassets2Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png_ixlib=rb-4.0.jpg" alt="Qiita記事" class="product-img">
+                </a>
+                <p><font size="1">Title Tag : #Python #RSA #PyCryptofome  <br>Date:2025/02/13</font></p>
+            </div>
+
+            <div class="img_card java">
+                <p><font size="1">Article | Qiita</font></p>
+                <a href="https://qiita.com/ouQVZUDx/items/195ebc7bd972dcd8c30d" target="_blank">
+                    <img src="photograph/https___qiita-user-contents.imgix.net_https2F2Fassets2Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png_ixlib=rb-4.0.1.jpg" alt="Qiita記事" class="product-img">
+                </a>
+                <p><font size="1">Title Tag : #Java  <br>Date:2025/02/15</font></p>
+            </div>
+
+            <div class="img_card python">
+                <p><font size="1">Article | Qiita</font></p>
+                <a href="https://qiita.com/ouQVZUDx/items/26bf85bc8a484785a623" target="_blank">
+                    <img src="photograph/https___qiita-user-contents.imgix.net_https2F2Fassets2Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png_ixlib=rb-4.0.2.jpg" alt="Qiita記事" class="product-img">
+                </a>
+                <p><font size="1">Title Tag : #Python #微分 <br>Date:2025/02/12</font></p>
+            </div>
+
+            <div class="img_card python">
+                <p><font size="1">Article | Qiita</font></p>
+                <a href="404ErrorPage.html" target="_blank">
+                    <img src="photograph/comingsoon.png" alt="Qiita記事" class="product-img">
+                </a>
+                <p><font size="1">Title Tag : #Python <br> Date:2025/xx/xx</font></p>
+            </div>
+
+            <div class="img_card python">
+                <p><font size="1">Article | Qiita</font></p>
+                <a href="404ErrorPage.html" target="_blank">
+                    <img src="photograph/comingsoon.png" alt="Qiita記事" class="product-img">
+                </a>
+                <p><font size="1">Title Tag : #Python <br> Date:2025/xx/xx</font></p>
+            </div>
+
+            <div class="img_card python">
+                <p><font size="1">Article | Qiita</font></p>
+                <a href="https://qiita.com/ouQVZUDx/items/9be7b8c9319924a55d52" target="_blank">
+                    <img src="photograph/https___qiita-user-contents.imgix.net_https2F2Fassets2Farticle-ogp-background-afbab5eb44e0b055cce1258705637a9123.png_ixlib=rb-4.0.jpg" alt="Qiita記事" class="product-img">
+                </a>
+                <p><font size="1">Title Tag : #Python  IEE754 <br> Date:2025/02/07</font></p>
+            </div>
+
+            <div class="img_card python">
+                <p><font size="1">Article | Qiita</font></p>
+                <a href="https://qiita.com/ouQVZUDx/items/5ebc4c99784d23173996" target="_blank">
+                    <img src="photograph/https___qiita-user-contents.imgix.net_https2F2Fassets2Farticle-ogp-background-afbab5eb44e0b055cce1258705637a9121.png_ixlib=rb-4.0.jpg" alt="Qiita記事" class="product-img">
+                </a>
+                <p><font size="1">Title Tag : #Python  リングバッファ <br> Date:2025/02/07</font></p>
+            </div>
+
+            <div class="img_card python">
+                <p><font size="1">Article | Qiita</font></p>
+                <a href="https://qiita.com/ouQVZUDx/items/85374bbc099c152d92b2" target="_blank">
+                    <img src="photograph/https___qiita-user-contents.imgix.net_https2F2Fassets2Farticle-ogp-background-afbab5eb44e0b055cce1258705637a911234.png_ixlib=rb-4.0.jpg" alt="Qiita記事" class="product-img">
+                </a>
+                <p><font size="1">Title Tag : #Python   逐次近似法<br> Date:2025/02/08</font></p>
+            </div>
+
+            <div class="img_card python">
+                <p><font size="1">Article | Qiita</font></p>
+                <a href="https://qiita.com/ouQVZUDx/items/b5c1d12911d44cdb1bb3" target="_blank">
+                    <img src="photograph/https___qiita-user-contents.imgix.net_https2F2Fassets2Farticle-ogp-background-afbab5eb44e0b055cce1258705637a9112222.png_ixlib=rb-4.0.jpg" alt="Qiita記事" class="product-img">
+                </a>
+                <p><font size="1">Title Tag : #Python   ヒープ<br> Date:2025/02/08</font></p>
+            </div>
+
+            <div class="img_card python">
+                <p><font size="1">Article | Qiita</font></p>
+                <a href="https://qiita.com/ouQVZUDx/items/b5b5c1e864da53bd5d8b" target="_blank">
+                    <img src="photograph/https___qiita-user-contents.imgix.net_https2F2Fassets2Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91221.png_ixlib=rb-4.0.jpg" alt="Qiita記事" class="product-img">
+                </a>
+                <p><font size="1">Title Tag : #Python   クイックソート<br> Date:2025/02/09</font></p>
+            </div>
+
+            <div class="img_card python">
+                <p><font size="1">Article | Qiita</font></p>
+                <a href="https://qiita.com/ouQVZUDx/items/4d6dd9b0cc6fac09b834" target="_blank">
+                    <img src="photograph/https___qiita-user-contents.imgix.net_https2F2Fassets2Farticle-ogp-background-afbab5eb44e0b055cce1258705637a912233.png_ixlib=rb-4.0.jpg" alt="Qiita記事" class="product-img">
+                </a>
+                <p><font size="1">Title Tag : #Python   ボイヤームーア法<br> Date:2025/02/10</font></p>
+            </div>
+
+            <div class="img_card python">
+                <p><font size="1">Article | Qiita</font></p>
+                <a href="https://qiita.com/ouQVZUDx/items/7ad92bee2d6771978204" target="_blank">
+                    <img src="photograph/https___qiita-user-contents.imgix.net_https2F2Fassets2Farticle-ogp-background-afbab5eb44e0b055cce1258705637a912342.png_ixlib=rb-4.0.jpg" alt="Qiita記事" class="product-img">
+                </a>
+                <p><font size="1">Title Tag : #Python   ダイクストラ法<br> Date:2025/02/10</font></p>
+            </div>
+
+            <div class="img_card python">
+                <p><font size="1">Article | Qiita</font></p>
+                <a href="https://qiita.com/ouQVZUDx/items/8a6663cfbc739f1075ae" target="_blank">
+                    <img src="photograph/https___qiita-user-contents.imgix.net_https2F2Fassets2Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.66png_ixlib=rb-4.0.jpg" alt="Qiita記事" class="product-img">
+                </a>
+                <p><font size="1">Title Tag : #Python   ナップザック問題<br> Date:2025/02/10</font></p>
+            </div>
+
+            <div class="img_card python">
+                <p><font size="1">Article | Qiita</font></p>
+                <a href="https://qiita.com/ouQVZUDx/items/90c28da547e6febc82e5" target="_blank">
+                    <img src="photograph/https___qiita-user-contents.imgix.net_https2F2Fassets2Farticle-ogp-background-afbab5eb44e0b055cce1258705637a9199.png_ixlib=rb-4.0.jpg" alt="Qiita記事" class="product-img">
+                </a>
+                <p><font size="1">Title Tag : #Python   動的計画法 分割統治法 モジュラー<br> Date:2025/02/11</font></p>
+            </div>
+
+            <div class="img_card python">
+                <p><font size="1">Article | Qiita</font></p>
+                <a href="https://qiita.com/ouQVZUDx/items/9f51fbf817e8ac80d6ba" target="_blank">
+                    <img src="photograph/https___qiita-user-contents.imgix.net_https2F2Fassets2Farticle-ogp-background-afbab5eb44e0b055cce1258705637a912245.png_ixlib=rb-4.0.jpg" alt="Qiita記事" class="product-img">
+                </a>
+                <p><font size="1">Title Tag : #Python   動的計画法<br> Date:2025/02/11</font></p>
+            </div>
+
+            <div class="img_card python">
+                <p><font size="1">Article | Qiita</font></p>
+                <a href="https://qiita.com/ouQVZUDx/items/39815fb3e073560068ec" target="_blank">
+                    <img src="photograph/https___qiita-user-contents.imgix.net_https2F2Fassets2Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91554.png_ixlib=rb-4.0.jpg" alt="Qiita記事" class="product-img">
+                </a>
+                <p><font size="1">Title Tag : #Python 行列 固有ベクトル べき乗法 特性方程式<br> Date:2025/02/12</font></p>
+            </div>
+
+            <div class="img_card python">
+                <p><font size="1">Article | Qiita</font></p>
+                <a href="https://qiita.com/ouQVZUDx/items/2534bcb6f03bf426f6ad" target="_blank">
+                    <img src="photograph/https___qiita-user-contents.imgix.net_https2F2Fassets2Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91456.png_ixlib=rb-4.0.jpg" alt="Qiita記事" class="product-img">
+                </a>
+                <p><font size="1">Title Tag : #Python  クソコード<br> Date:2025/02/13</font></p>
+            </div>
+
+            <div class="img_card AI" >
+                <p><font size="1">Article | Qiita</font></p>
+                <a href="https://qiita.com/ouQVZUDx/items/9ce7e1f528d3a0e61907" target="_blank">
+                    <img src="photograph/https___qiita-user-contents.imgix.net_https2F2Fassets2Farticle-ogp-background-afbab5eb44e0b055cce1258705637a915467.png_ixlib=rb-4.0.jpg" alt="Qiita記事" class="product-img">
+                </a>
+                <p><font size="1">Title Tag : #DeNa 生成AI Perplexity NotebookLM o1<br> Date:2025/02/14</font></p>
+            </div>
+
+            <div class="img_card knowledge">
+                <p><font size="1">Article | Qiita</font></p>
+                <a href="https://qiita.com/ouQVZUDx/items/391f08eed9fc9bdcde8b" target="_blank">
+                    <img src="photograph/https___qiita-user-contents.imgix.net_https2F2Fassets2Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91674.png_ixlib=rb-4.0.jpg" alt="Qiita記事" class="product-img">
+                </a>
+                <p><font size="1">Title Tag : #WiFi  Wi-Fi フリーWifi<br> Date:2025/02/14</font></p>
+            </div>
+
+            <div class="img_card python">
+                <p><font size="1">Article | Qiita</font></p>
+                <a href="https://qiita.com/ouQVZUDx/items/6a1515464e45d1ddc671" target="_blank">
+                    <img src="photograph/https___qiita-user-contents.imgix.net_https2F2Fassets2Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91093png_ixlib=rb-4.0.jpg" alt="Qiita記事" class="product-img">
+                </a>
+                <p><font size="1">Title Tag : #Python  ライブラリ Pygame<br> Date:2025/02/28</font></p>
+            </div>
+
+            <div class="img_card python">
+                <p><font size="1">Article | Qiita</font></p>
+                <a href="https://qiita.com/ouQVZUDx/items/25bd141713b5f9a6afa9" target="_blank">
+                    <img src="photograph/https___qiita-user-contents.imgix.net_https2F2Fassets2Farticle-ogp-background-afbab5eb44e0b055cce1258705637a912215.png_ixlib=rb-4.0.jpg" alt="Qiita記事" class="product-img">
+                </a>
+                <p><font size="1">Title Tag : #Python error <br> Date:2025/03/01</font></p>
+            </div>
+
+            <div class="img_card knowledge">
+                <p><font size="1">Article | Qiita</font></p>
+                <a href="https://qiita.com/ouQVZUDx/items/db5a6bf0ebafbca5e0ea" target="_blank">
+                    <img src="photograph/https___qiita-user-contents.imgix.net_https2F2Fassets2Farticle-ogp-background-afbab5eb44e0b055cce1258705637a9103.png_ixlib=rb-4.0.jpg" alt="Qiita記事" class="product-img">
+                </a>
+                <p><font size="1">Title Tag : #Webアプリケーション Webサイト 違い <br> Date:2025/03/06</font></p>
+            </div>
+
+            <div class="img_card python">
+                <p><font size="1">Article | Qiita</font></p>
+                <a href="https://qiita.com/ouQVZUDx/items/90c5eb472ca338828914" target="_blank">
+                    <img src="photograph/https___qiita-user-contents.imgix.net_https2F2Fassets2Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91034.png_ixlib=rb-4.0.jpg" alt="Qiita記事" class="product-img">
+                </a>
+                <p><font size="1">Title Tag : #Python  基礎<br> Date:2025/03/08</font></p>
+            </div>
+
+            <div class="img_card knowledge">
+                <p><font size="1">Article | Qiita</font></p>
+                <a href="https://qiita.com/ouQVZUDx/items/923d3b527099ac49aba6" target="_blank">
+                    <img src="photograph/https___qiita-user-contents.imgix.net_https2F2Fassets2Farticle-ogp-background-afbab5eb44e0b055cce1258705637a914239.png_ixlib=rb-4.0.jpg" alt="Qiita記事" class="product-img">
+                </a>
+                <p><font size="1">Title Tag : #教師あり学習 教師なし学習 違い <br> Date:2025/03/09</font></p>
+            </div>
+
+            <div class="img_card knowledge">
+                <p><font size="1">Article | Qiita</font></p>
+                <a href="https://qiita.com/ouQVZUDx/items/1bd1219525e1582c418c" target="_blank">
+                    <img src="photograph/https___qiita-user-contents.imgix.net_https2F2Fassets2Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91347.png_ixlib=rb-4.0.jpg" alt="Qiita記事" class="product-img">
+                </a>
+                <p><font size="1">Title Tag : #Git gitコマンド <br> Date:2025/03/10</font></p>
+            </div>
+
+            <div class="img_card knowledge">
+                <p><font size="1">Article | Qiita</font></p>
+                <a href="https://qiita.com/ouQVZUDx/items/5d86370cd519b6909e78" target="_blank">
+                    <img src="photograph/https___qiita-user-contents.imgix.net_https2F2Fassets2Farticle-ogp-background-afbab5eb44e0b055cce1258705637a9104.png_ixlib=rb-4.0.jpg" alt="Qiita記事" class="product-img">
+                </a>
+                <p><font size="1">Title Tag : #コード規約 <br> Date:2025/03/10</font></p>
+            </div>
+
+            <div class="img_card knowledge">
+                <p><font size="1">Article | Qiita</font></p>
+                <a href="https://qiita.com/ouQVZUDx/items/0ef4c9bc7e5488ac2948" target="_blank">
+                    <img src="photograph/https___qiita-user-contents.imgix.net_https2F2Fassets2Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91037.png_ixlib=rb-4.0.jpg" alt="Qiita記事" class="product-img">
+                </a>
+                <p><font size="1">Title Tag : #拡張機能 VSCode <br> Date:2025/03/10</font></p>
+            </div>
+
+            <div class="img_card knowledge">
+                <p><font size="1">Article | Qiita</font></p>
+                <a href="https://qiita.com/ouQVZUDx/items/abbb9b9c3103cbe940f0" target="_blank">
+                    <img src="photograph/https___qiita-user-contents.imgix.net_https2F2Fassets2Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91392.png_ixlib=rb-4.0.jpg" alt="Qiita記事" class="product-img">
+                </a>
+                <p><font size="1">Title Tag : #フロントエンド バックエンド 違い比較 <br> Date:2025/03/13</font></p>
+            </div>
+
+            <div class="img_card knowledge">
+                <p><font size="1">Article | Qiita</font></p>
+                <a href="https://qiita.com/ouQVZUDx/items/ee3c00be7bf2bee13d43" target="_blank">
+                    <img src="photograph/https___qiita-user-contents.imgix.net_https2F2Fassets2Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91089.png_ixlib=rb-4.0.jpg" alt="Qiita記事" class="product-img">
+                </a>
+                <p><font size="1">Title Tag : #非同期処理 同期処理 違い比較 <br> Date:2025/03/14</font></p>
+            </div>
+
+            <div class="img_card knowledge">
+                <p><font size="1">Article | Qiita</font></p>
+                <a href="https://qiita.com/ouQVZUDx/items/3545fdcf01add2ef9afe" target="_blank">
+                    <img src="photograph/https___qiita-user-contents.imgix.net_https2F2Fassets2Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91220.png_ixlib=rb-4.0.jpg" alt="Qiita記事" class="product-img">
+                </a>
+                <p><font size="1">Title Tag : #SQL nosql 違い比較 <br> Date:2025/03/15</font></p>
+            </div>
+
+            <div class="img_card knowledge">
+                <p><font size="1">Article | Qiita</font></p>
+                <a href="https://qiita.com/ouQVZUDx/items/e7f4b2ec6d31864dbe0a" target="_blank">
+                    <img src="photograph/https___qiita-user-contents.imgix.net_https2F2Fassets2Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91084.png_ixlib=rb-4.0.jpg" alt="Qiita記事" class="product-img">
+                </a>
+                <p><font size="1">Title Tag : #pandas データ前処理 <br> Date:2025/03/15</font></p>
+            </div>
+
+            <div class="img_card AI">
+                <p><font size="1">Article | Qiita</font></p>
+                <a href="https://qiita.com/ouQVZUDx/items/ae92c3a1f65fcdc1b009" target="_blank">
+                    <img src="photograph/https___qiita-user-contents.imgix.net_https2F2Fassets2Farticle-ogp-background-afbab5eb44e0b055cce1258705637a910340.png_ixlib=rb-4.0.jpg" alt="Qiita記事" class="product-img">
+                </a>
+                <p><font size="1">Title Tag : #生成AI <br> Date:2025/03/15</font></p>
+            </div>
+
+            <div>
+                <p style="text-align:center"><a href="index.html" class="return-original">return</a></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
