@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <!-- メタ情報の設定 -->
+    <meta charset="UTF-8"> <!---文字エンコーディングをUTF-8に設定 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--レスポンシブ対応-->
+    <title>Kousei Portfolio</title> <!--ぺージのタイトル-->
+    <style>
+        /* 基本スタイル設定 */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* メニューボタン(ハンバーガーメニュー)のスタイル */
+        .menu {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            cursor: pointer;
+            font-size: 24px;
+            color: white;
+        }
+
+        /* メニューアイテム(ナビゲーションリスト)のスタイル */
+        .menu-items {
+            display: none; /*デフォルトでは非表示 */
+            position: absolute;
+            top: 50px;
+            right: 20px;
+            background: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .menu-items a {
+            display: block;
+            text-decoration: none;
+            color: black;
+            padding: 5px 10px;
+        }
+
+        /*ヘッダーコンテナ(画像+テキスト)のスタイル*/
+        .header-containner {
+            display: flex;
+            width: 100%;
+            height: 700px; /*ヘッダー写真のサイズ変更*/
+        }
+
+        .header-text {
+            width: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f4f4f4;
+            text-align: left;
+            font-size: 24px;
+            font-weight: bold;
+            padding-left: 20px;
+        }
+
+        .header-image {
+            width: 50%; 
+        }
+
+        .header-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        /*セクションの基本スタイル*/
+        .item {
+            background: white;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            text-align: left;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+
+        .item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /*スターの色指定*/
+        .stars {
+            color: gold;
+        }
+
+        /*「もっと見る」ボタンのスタイル*/
+        .view-more {
+            margin-top: 10px;
+            display: inline-block;
+            padding: 10px 20px;
+            background: #101010; 
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            text-align: center;
+            transform: transform 0.3s ease-in-out;
+        }
+
+        .view-more:hover {
+            /* 拡大率変更部分*/
+            transform: scale(1.2);
+        }
+
+        .img_inner {
+            display: flex;
+            gap: 20px;    
+            padding: 10px 0; 
+            max-width: 1000px; 
+            margin: 0 auto;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .img_card{
+            width: 33.333%;
+        }
+
+        .product-img {
+            width: 100%;
+            max-width: 300px; 
+            display: black;
+            margin: 10px auto;
+            border-radius: 8px;
+        }          
+
+        .skill-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        .skill-table th,.skill-table td {
+            border: 1px solid #ddd;
+            padding : 8px;
+            text-align: left;
+        }
+
+        .skill-table th{
+            background-color: #7aabc6;
+            color: white;
+        }
+
+        .content{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px; 
+            width: 80%;    
+            margin: auto;
+        }
+
+        /*コンテンツのスタイル*/
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px; 
+            width: 80%;    
+            margin:auto;
+        }
+
+        .ul-sns {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .ul-sns li {
+            display: flex;
+            align-items: center;
+        }
+
+        .ul-sns a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: black;
+            font-size: 16px;
+            gap: 8px;
+        }
+
+        .contact-icon {
+            width: 24px;  
+            height: 24px;
+        }
+
+    </style>
+
+    <script>
+        /*メニューの表示・非表示を切り替える関数*/
+        function toggleMenu() {
+            var menu = document.getElementById('menu-items');
+            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+        }
+        /*スクロール時の要素をフェードインさせる処理*/
+        document.addEventListener("scroll", function() {
+            let items = document.querySelectorAll(".item");
+            let windowHeight = window.innerHeight;
+            
+            items.forEach(function(item) {
+                let position = item.getBoundingClientRect().top;
+                if (position < windowHeight - 50) {
+                    item.classList.add("visible");
+                } else {
+                    item.classList.remove("visible");
+                }
+            });
+        });
+    </script>
+
+</head>
+
+<body>
+    <!--ハンバーガーメニューのアイコン-->
+    <div class="menu" onclick="toggleMenu()">☰</div>
+    <!--メニューのリンクリスト-->
+    <div class="menu-items" id="menu-items">
+        <a href="#profile">Profile</a>
+        <a href="#skill">Skill</a>
+        <a href="#gpa">GPA</a>
+        <a href="#background">Background</a>
+        <a href="#article">Article</a>
+        <a href="#product">Product</a>
+        <a href="#contact">Contact</a>
+    </div>
+
+    <!--ヘッダー部分(左：テキスト、右：画像)-->
+    <div class="header-containner">
+        <div class="header-text">
+            <p><font face="Times New Roman" size="10">Kousei <br>My Portfolio</font></p>
+        </div>
+        <div class="header-image">
+            <img src="photograph/S__23740422.jpg" alt="Portfolio Image">
+        </div>
+    </div>
+    
+    <!--メインコンテンツ部分-->
+    <div class="content">
+        <div class="container">
+            <div class="item" id="profile">
+                <h2><font face="Century" >Profile</font></h2>
+                <p><strong>名前 : </strong>コウセイ</p>
+                <p><strong>大学名 : </strong>東京工科大学</p>
+                <p><strong>自己紹介 : </strong>コンピュータサイエンス学部先進情報を専攻</p>
+                <p><strong>趣味 : </strong> 野球観戦、古着屋巡り、音楽鑑賞</p>
+                <p style="text-align:center"><a href="profile.html" class="view-more">View More</a></p>
+            </div>
+            
+            <div class="item" id="skill">
+                <h2><font face="Century">Skill</font></h2>
+                <table class="skill-table">
+                    <tr>
+                        <th>スキル</th>
+                        <th>レベル</th>
+                        <th>できること</th>
+                    </tr>
+                    <tr>
+                        <td><strong>Python</strong></td>
+                        <td><span class="stars">★★★☆☆</span></td>    
+                        <td>ライブラリやフレームワークを活用可能</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Java</strong></td>
+                        <td><span class="stars">★★☆☆☆</span></td> 
+                        <td>オブジェクト指向プログラミング、Spring 、講義で使用した程度</td>
+                    </tr>
+                    <tr>
+                        <td><strong>HTML</strong></td>
+                        <td><span class="stars">★★★☆☆</span></td>
+                        <td>本ポートフォリオの作成</td>
+                    </tr>
+                    <tr>
+                        <td><strong>CSS</strong></td>
+                        <td><span class="stars">★★★☆☆</span></td>
+                        <td>レスポンシブデザイン、アニメーションの実装</td>
+                    </tr>
+                    <tr>
+                        <td><strong>MYSQL</strong></td> 
+                        <td><span class="stars">★★☆☆☆</span></td>
+                        <td>講義内の課題で使用した程度</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="item" id="gpa">
+                <h2><font face="Century">GPA</font></h2>
+                <p><strong>現在のGPA : </strong> 非公開</p>
+            </div>
+            
+            <div class="item" id="background">
+                <h2><font face="Century">Background</font></h2>
+                <p><strong>高校 : </strong> 聖望学園高等学校</p>
+                <p><strong>大学選びのきっかけ : </strong> プログラムに興味があり選択</p>
+                <p><strong>アルバイト経験 : </strong> イベントスタッフ、アパレルスタッフ</p>
+                <p><strong>興味のあること : </strong> AI技術、Python</p>
+                <p style="text-align:center"><a href="Background.html" class="view-more">View More</a></p>
+            </div>
+            
+            <div class="item" id="article">
+                <h2><font face="Century">Article</font></h2>
+                <div class="img_inner">
+                    <div class="img_card">
+                        <p><font size="1">Article | Qiita</font></p>
+                        <a href="https://qiita.com/ouQVZUDx/items/d608b024ae075a2920ba" target="_blank">
+                            <img src="photograph/https___qiita-user-contents.imgix.net_https2F2Fassets2Farticle-ogp-background-afbab5eb44e0b055cce1258705637a92.png_ixlib=rb-4.0.jpg" alt="Qiita記事" class="product-img">
+                        </a>
+                        <p><font size="1">Title Tag : #Python #ライブラリ  <br>Date:2025/02/15</font></p>
+                    </div>
+                    <div class="img_card">
+                        <p><font size="1">Article | Qiita</font></p>
+                        <a href="https://qiita.com/ouQVZUDx/items/ba2a27720d63da168b62" target="_blank">
+                            <img src="photograph/https___qiita-user-contents.imgix.net_https2F2Fassets2Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png_ixlib=rb-4.0.jpg" alt="Qiita記事" class="product-img">
+                        </a>
+                        <p><font size="1">Title Tag : #Python #RSA #PyCryptofome  <br>Date:2025/02/13</font></p>
+                    </div>
+                    <div class="img_card">
+                        <p><font size="1">Article | Qiita</font></p>
+                        <a href="https://qiita.com/ouQVZUDx/items/195ebc7bd972dcd8c30d" target="_blank">
+                            <img src="photograph/https___qiita-user-contents.imgix.net_https2F2Fassets2Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png_ixlib=rb-4.0.1.jpg" alt="Qiita記事" class="product-img">
+                        </a>
+                        <p><font size="1">Title Tag : #Java  <br>Date:2025/02/15</font></p>
+                    </div>
+                    <div class="img_card">
+                        <p><font size="1">Article | Qiita</font></p>
+                        <a href="https://qiita.com/ouQVZUDx/items/26bf85bc8a484785a623" target="_blank">
+                            <img src="photograph/https___qiita-user-contents.imgix.net_https2F2Fassets2Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png_ixlib=rb-4.0.2.jpg" alt="Qiita記事" class="product-img">
+                        </a>
+                        <p><font size="1">Title Tag : #Python #微分 <br>Date:2025/02/12</font></p>
+                    </div>
+                    <div class="img_card">
+                        <p style="text-align:center"><a href="Article.html" class="view-more">View More</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item" id="product">
+                <h2><font face="Century">Product</font></h2>
+                <div class="img_inner">
+                    <div class="img_card">
+                        <p><font size="1">Product | Website</font></p>
+                        <a href="ProjectB.html" target="_blank">
+                            <img src="photograph/S__23601156.jpg" alt="プロジェクト演習B"  class="product-img">
+                        </a>
+                        <p><font size="1">Joint Development : Website Production <br>Date:2024/07/14 </font></p>
+                    </div>
+
+                    <div class="img_card">    
+                        <p><font size="1">Product | Website</font></p>
+                        <a href="ProjectD.html" target="_blank">
+                            <img src="photograph/S__23601158.jpg" alt="プロジェクト演習D"  class="product-img">
+                        </a>
+                        <p><font size="1">Joint Development : Game Production <br>Date:2025/01/18</font></p>
+                    </div>
+
+                    <div class="img_card">
+                        <p><font size="1">Product | Qiita</font></p>
+                        <a href="404ErrorPage.html" target="_blank">
+                            <img src="photograph/comingsoon.png" alt="Qiita記事" class="product-img">
+                        </a>
+                        <p><font size="1">Personal Development : Website Production <br>Date:2025/××/××</font></p> 
+                    </div>
+
+                    <div class="img_card">
+                        <p><font size="1">Product | Qiita</font></p>
+                        <a href="404ErrorPage.html" target="_blank">
+                            <img src="photograph/comingsoon.png" alt="Qiita記事" class="product-img">
+                        </a>
+                        <p><font size="1">Personal Development : Game Production <br>Date:2025/××/××</font></p> 
+                    </div>
+
+                    <div class="img_card">
+                        <p style="text-align:center"><a href="Product.html" class="view-more">View More</a></p>
+                    </div>
+                </div>
+            </div>
+
+        <div class="item" id="contact">
+            <h2><font face="Century">Contact</font></h2>
+            <p>各種SNS・プログはこちら</p>
+            <ul class="ul-sns">
+                <p>
+                    <a href="https://github.com/kousei6" target="_blank" rel="noopener noreferrer">
+                        <img src="photograph/d14901-40-386781-0.jpg" alt="GitHub" class="contact-icon"/>
+                        GitHub
+                    </a>
+                </p>
+                <p>
+                    <a href="https://qiita.com/ouQVZUDx" target="_blank" rel="noopener noreferrer">
+                        <img src="photograph/unnamed.jpg" alt="Qiita" class="contact-icon"/>
+                        Qiita
+                    </a>
+                </p>
+        </div>        
+    </div>    
+</body>
+</html>
+
