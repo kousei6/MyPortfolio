@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <!-- 文字エンコーディングをUTF-8に設定 -->
+    <meta charset="UTF-8">
+    <!-- ビューポートの設定(レスポンシブ対応) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 外部CSSファイルの読み込み -->
+    <link rel="stylesheet" href="bottom_margin.css">
+    <title>Product ProjectB</title>
+    <style>
+
+        /*「もっと見る」ボタンのスタイル*/
+        .detail {
+            margin-top: 10px;
+            display: inline-block;
+            padding: 10px 30px;
+            background: #000000; 
+            color: rgb(255, 255, 255);
+            text-decoration: none;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        /* 全体の基本設定 */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+        }
+
+        /* メインコンテンツのコンテナ設定 */
+        .container {
+            width: 90%; 
+            margin:auto; 
+            padding: 20px;
+        }
+
+        /* レイアウト用の行設定 */
+        .row {
+            display: flex; 
+            align-items: center; 
+            justify-content: space-between; 
+            margin-bottom: 20px;
+        }
+
+        /*カラムの設定*/
+        .col {
+            flex: 1; 
+            padding: 10px;
+        }
+
+        /* 画像ギャラリーのレイアウト設定 */
+        .img__inner {
+            display: flex;
+            gap: 30px; 
+            padding: 20px 0;
+            max-width: 1000px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        /*画像カードの幅設定*/
+        .img__card {
+            width: 33.333%;
+        }
+
+        /*画像のスタイル設定*/
+        .img-item {
+            width: 100%;
+            height: 300px; 
+            object-fit: cover;
+            border-radius: 8px;
+            border: 1px solid #111;
+        }
+
+        .menu {
+            position: fixed;
+            top: 10px;
+            right: 20px;
+            background: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex; 
+            gap: 15px; 
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: #333;
+            padding: 5px 10px;
+        }
+
+        .bottom_space{
+            margin-bottom: 0.5em; /*0.5*/
+        }
+
+        /*メニューバーの固定位置設定*/
+        .menu-container {
+            position: fixed;
+            top: 10px;
+            right: 20px;
+            z-index: 1000;/*他の要素の上に表示*/
+        }
+
+        /*メニューアイコンのデザイン*/
+        .menu-icon {
+            font-size:  24px;
+            cursor: pointer;
+            background: #fff;
+            padding: 5px; /*本来は10pxだった*/
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);/*影を追加*/
+        }
+
+        /*メニュー項目の設定*/
+        .menu-items {
+            display: none;/*初期状態では非表示*/
+            position: absolute;
+            top: 40px;
+            right: 0;
+            background: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            border-radius: 5px;
+            white-space: nowrap;/*文字を折り返さずに表示*/
+        }
+
+        /*メニュー項目のスタイル*/
+        .menu-items a{
+            display: inline-block;/*横並びにする*/
+            text-decoration: none;
+            color: #333;
+            padding: 5px 10px;
+        }
+
+        p {
+            line-height: 1.5;
+        } 
+    </style>
+    <script>
+        /*メニューの開閉処理*/
+        function toggleMenu(){
+            var menu = document.getElementById("menu-items");
+            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';        
+        }
+    </script>
+</head>
+
+<body>
+    <!-- メニューアイコンとメニューリスト -->
+    <div class="menu-container">
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+        <div class="menu-items" id="menu-items">
+            <a href="#overview">概要</a>
+            <a href="#HTML-home-page">HTMLホームページ</a>
+            <a href="#HTML-personal-page">HTML個人ページ</a>
+            <a href="#detail">詳細</a>
+        </div>
+    </div>
+
+    <!-- メインコンテンツ -->
+    <div class="container">
+        <h1><font face="Times New Roman" size="20">Product</font></h1>
+        
+        <!-- 概要セクション -->
+        <div class="row" id="overview">
+            <div class="col">
+                <p><font face="Comic Sans MS" size="1">overview</font></p>
+                <p><font face="monospace" size="5">概要</font></p>
+                <p class="bottom_space"><font face="monospace" >今回のチーム開発では、４人で協力し「わたしたちの趣味」をテーマにしたWebサ
+                イトを作成しました。メンバーごとに自分の趣味を紹介する個別ページを作成
+                し、トップページからアクセスできる構成にしました。トップページには、各メン    
+                バーの趣味に関するスライドショーやリンクを設置し、視覚的にも楽しめるサイト
+                に仕上げました。</font></p>
+            </div>
+           <div class="col">
+                <img src="photograph/dammy_html-css-js01.jpg" alt="プロジェクト概要" class="img-item">
+            </div>
+        </div>
+
+        <!-- HTMLトップページセクション -->
+        <div class="row" id="HTML-home-page">
+            <div class="col ">
+                <img src="photograph/S__23601156.jpg"  alt="ホームページ" class="img-item">
+            </div>
+            <div class="col ">
+                <p><font face="Comic Sans MS" size="1"> HTML home page</font></p>
+                <p class="bottom_space"><font face="monospace" size="5">HTMLホームページ</font></p>
+                <p class="bottom_space"><font face="monospace">HTMLトップページでは、ユーザが簡単に各メンバーのページに移動できるように、以下の機能を実装しました。<br>
+                    <p class="bottom_space">・アイコン画像クリックで個人ページへ移動</p>
+                    <p class="bottom_space">・趣味の写真をスライドショーで表示(Query+Slick Carouselを使用)</p>
+                    <p class="bottom_space">・Wordpress版へのリンクを設置</p>
+                    スライドショーの自動再生やナビゲーションの工夫により、動きのあるページを作成しました</p>
+                </font></p>
+            </div>
+        </div>
+
+
+        <!-- HTML個人ページセクション -->
+        <div class="row" id="HTML-personal-page">
+            <div class="col ">
+                <p><font face="Comic Sans MS" size="2">HTML personal page</font></p>
+                <p><font face="monospace" size="5">HTML個人ページ</font></p>
+                <p><font face="monospace">私の個人ぺージでは、推しチーム・選手・おすすめ球場など、野球に関する情報を掲載しました。<br>
+                    <p class="bottom_space">・ヘッダーメニューを設置し、スムーズに各セクションへ移動可能に</p>
+                    <p class="bottom_space">・WordPress版へのリンクを追加し、別のプラットフォームでも同じ情報を閲覧できるように</p>
+                    <p class="bottom_space">・YouTube動画を埋め込み、より直接的に楽しめるコンテンツに</p>
+                </font></p>
+            </div>
+            <div class="col ">
+                <img src="photograph/messageImage_1739789328195.jpg" alt="個人ページ" class="img-item">
+            </div>
+        </div>
+        
+        <!-- 詳細セクション -->
+        <div class="row" id="detail">
+            <div class="col ">
+                <a href="404ErrorPage.html" target="_blank">
+                    <img src="photograph/comingsoon.png" alt="プロジェクト詳細" class="img-item">
+                </a>
+                <p style="text-align:center"><a href="404ErrorPage.html" class="detail">detail</a></p>
+            </div>
+            <div class="col ">
+                <p><font face="Comic Sans MS" size="2">detail</font></p>
+                <p><font face="monospace" size="5"> 詳細</font></p>
+                <p><font face="monospace">実装では、JQueryを用いたスライドショーや、HTML・CSSでのデザイン調整を行いました。<br>
+                    <p class="bottom_space">[できたこと]</p>
+                    ・ユーザーが直接的に操作できるサイト設計<br>
+                    ・WordPressとの連携<br>
+                    ・コンテンツの充実(写真や動画の活用)<br>
+                    <p class="bottom_space">[改善点]</p>
+                    ・背景デザインをより洗練させる<br>
+                    ・フェードインなどのアニメーションを追加する<br>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 
