@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <!-- 文字エンコーディングをUTF-8に設定 -->
+    <meta charset="UTF-8">
+    <!-- ビューポートの設定(レスポンシブ対応) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background</title>
+    <style>
+        /*ページ全体の基本スタイル*/
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+
+        /*コンテンツ全体の最大幅を制御し、中央配置*/
+        .container {
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        /*各行(セクション)のスタイル設定*/
+        .row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 40px 0;
+            background: #fff; /*#fff*/
+            padding: 20px;
+            border-radius: 6px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        /*列(コンテンツ部分)のスタイル設定*/
+        .col {
+            flex: 1;
+            padding: 20px;
+        }
+       
+        .img__inner {
+            display: flex;
+            gap: 30px;
+            padding: 20px 0;
+            max-width: 1000px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .img__card {
+            width: 33.333%;
+        }
+
+        /*画像のサイズとレイアウト調整*/
+        .img-item {
+            width: 100%;
+            height: 300px; 
+            object-fit: cover;
+            border-radius: 8px;
+            border: 1px solid #111;
+        }
+
+        h2 {
+            font-size: 18px;
+            color: #000000;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 14px;
+            color: #000000; 
+        }
+
+        /*タイムライン全体のスタイル設定*/
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        /*タイムラインの縦線：線*/
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: #e0e0e0;
+            top: 0;
+            bottom: 0;
+            left: 20px;
+            margin-left: -2px;
+        }
+
+        /*タイムラインの各項目のスタイル*/
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            background-color: #fff;
+            margin: 20px 0;
+            border-radius: 6px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        /*タイムラインの各項目の前に表示する丸いマーカー：〇*/
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            width: 20px; 
+            height: 20px; 
+            background-color: #e0e0e0;
+            border-radius: 50%;
+            left: 10px; 
+            top: 28px; 
+            z-index: 1;
+        }
+
+        .timeline-item h2 {
+            font-size: 18px;
+            color: #000000; 
+            margin-bottom: 5px;
+        }
+
+        .timeline-item p {
+            font-size: 14px;
+            color: #000000; 
+        }
+
+        .section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 50px;
+            background: #fff;
+            padding: 20px;
+            border-radius: 6px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .section h2 {
+            font-size: 20px;
+            color: #ff6f61;
+        }
+
+        .section p {
+            font-size: 14px;
+            color: #666; 
+            max-width: 60%;
+        }
+
+        p {
+            line-height: 1.5;
+        } 
+
+        .arrow {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        margin: 20px 0;
+        }
+
+        .arrow::before,
+        .arrow::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            width: 4px;
+            height: 25px;
+            border-radius: 9999px;
+            background-color: #000;
+            transform-origin: 50% calc(100% - 2px);
+        }
+
+        .arrow::before {
+            transform: rotate(45deg);
+        }
+
+        .arrow::after {
+            transform: rotate(-45deg);
+        }        
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1><font face="Times New Roman" size="20">Background</font></h1>
+        <div class="row">
+            <div class="col">
+                <h2><font size="2" >2004.07</font></h2>
+                <p><font size="3" >何事にも好奇心旺盛だった幼少期</font>
+                <p><font size="2">幼い頃は好奇心旺盛で、外で遊ぶのが大好きでした。友達と仮面ライダーごっこをしたり、サッカーや鬼ごっこに夢中になったりして、活発に過ごしていました。 
+                    また、両親に連れて行ってもらった警察官の仕事体験イベントに参加し、一時は「将来は警察官になりたい！」と夢見ていた時期もありました。
+                </font></p>
+            </div>
+        </div>
+
+        <div class="arrow"></div>
+
+        <div class="row">
+            <div class="col">
+                <h2><font size="2" >2020.03</font></h2>
+                <p><font size="3" >コロナ渦で思い通りにいかなかった高校時代</font>
+                <p><font size="2">高校1年生の頃、新型コロナウイルスの感染拡大により、半年間リモート授業を受けることになりました。今まで当たり前だった「安心して健康に学べる環境」がどれほど貴重なものかを実感する機会となりました。 
+                    また、この時期にオンライン授業を支えていたアプリやツールの便利さを改めて感じ、「今度は自分が世の中の役に立つ技術を作る側になりたい」と思うようになりました。
+                </font></p>
+            </div>
+        </div>
+
+        <div class="arrow"></div>
+
+        <div class="row">
+            <div class="col">
+                <h2><font size="2" >2023.03</font></h2>
+                <p><font size="3" >プログラミングの楽しさを知った大学時代</font>
+                <p><font size="2">プログラミングの経験が全くない状態で大学に進学し、最初は不安を抱えていました。しかし、初めて print("Hello") とコードを書いて画面に出力されたとき、そのシンプルな動作に感動したのを覚えています。 
+                    大学の講義を通じて、さまざまな情報技術の分野に触れ、個人でもPythonのスキルを磨くようになりました。
+                    Qiitaで学んだ技術を発信したり、独自にゲームやWebサイトを開発したりする中で、プログラミングの楽しさと可能性を実感するようになりました。
+                </font></p>
+            </div>
+        </div>
+
+        <div class="arrow"></div>
+
+        <div class="row">
+            <div class="col">
+                <h2><font size="2" >2024.04~</font></h2>
+                <p><font size="3" >プログラマーを仕事にしたいと思うように</font>
+                <p><font size="2">大学で共同開発を通して、チームで同じ方向で技術を作り出す楽しさを実感。
+                        大学での共同開発を通じて、チームで同じ目標に向かって技術を作り上げることの楽しさを知りました。 
+                        そして、「自分の持つ技術で世の中をより便利で安全なものにしたい」という思いが強くなり、プログラマーとしての道を本格的に考えるようになりました。
+                </font></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 中学・高校コンテンツセクション-->
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h2>中学・高校</h2>
+                <p>中学・高校を通じて卓球部に4年間所属し、仲間と共に練習を重ねました。
+                    団体戦で優勝したときの達成感は今でも忘れられません。 
+                    高校では文理選択の機会を通じてさまざまな進路を知り、担任の先生や両親と相談しながら「自分は将来何をしたいのか」を真剣に考えるようになりました。
+                </p>
+            </div>
+            <div class="col">
+                <img src="photograph/106bf6f513a2de0fe36daae53800a066_t.jpeg" alt="中学・高校の写真" class="img-item">
+            </div>
+        </div>
+
+        <!-- 大学選びのきっかけコンテンツセクション -->
+        <div class="row">
+            <div class="col">
+                <img src="photograph/adpDSC_5901-760x507-1.jpg" alt="大学選びのきっかけの写真" class="img-item">
+            </div>
+            <div class="col">
+                <h2>大学選びのきっかけ</h2>
+                <p>14歳のとき、TBS系列のドラマ『逃げるは恥だが役に立つ』を観て、主演の星野源さんが演じる津崎平匡の職業であるプログラマーに憧れを抱きました。 
+                    そこから情報系の学部に興味を持ち、オープンキャンパスなどのイベントを通じて研究環境の充実度を重視し、進学先を決めました。
+                </p>
+            </div>
+        </div>
+
+        <!-- アルバイト経験コンテンツセクション -->
+        <div class="row">
+            <div class="col">
+                <h2>アルバイト経験</h2>
+                <p>これまでに球場イベントスタッフと古着屋スタッフとして働いた経験があります。</p>
+                    球場イベントスタッフ<br>
+                    <p>野球という自分の好きなコンテンツに触れながら、お客様に楽しんでもらえるよう工夫しながら働きました。</p>
+                    古着屋スタッフ<br>
+                    <p>主に接客や販売、古着の買い取り業務を担当しました。接客を通じてコミュニケーション能力が向上し、また査定業務を通じてブランドや古着市場に関する知識も深まりました。</p>
+            </div>
+            <div class="col">
+                <img src="photograph/messageImage_1739774049740.jpg" alt="アルバイト経験の写真" class="img-item">
+            </div>
+        </div>
+
+
+        <!-- 興味のあることコンテンツセクション -->
+        <div class="row">
+            <div class="col">
+                <img src="photograph/6375fc39bf885c1ec9d99445f8720127f1f728ac.webp" alt="興味のあることの写真" class="img-item">
+            </div>
+            <div class="col">
+                <h2>興味のあること</h2>
+                <p>PythonやAI技術に強い関心を持っています。AI技術は日々進化し続けており、その発展のスピードには目を見張るものがあります。 
+                    私自身もさまざまなAI技術を活用しており、特にPythonは今最も人気のあるプログラミング言語の一つといわれています。 
+                    これからも継続してPythonの学習を進め、AI技術への理解を深めていきたいと考えています。
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
